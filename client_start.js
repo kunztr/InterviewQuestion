@@ -1,4 +1,4 @@
-const {Application, View} = window.Marionette;
+import {Application, View} from "./libraries/marionette.js";
 
 const rootView = new (View.extend({
 
