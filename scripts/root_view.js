@@ -1,4 +1,5 @@
-import {View} from "/libraries/marionette.js";
+import {View}                            from "/libraries/marionette.js";
+import {testData1, testData2, testData3} from "/scripts/test_data/index.js";
 
 export class RootView extends View {
 
@@ -21,49 +22,17 @@ export class RootView extends View {
     }
 
     _showFirstTest() {
-        const testData = [];
-        const testComponent = this._createTags(testData);
+        const testComponent = this._createTags(testData1);
         this.getRegion("testRegion1").show(testComponent);
     }
 
     _showSecondTest() {
-        const testData = [
-            {
-                label: "Test Tag 1",
-                color: "is-primary"
-            },
-            {
-                label: "Test Tag 2",
-                color: "is-primary"
-            },
-            {
-                label: "Test Tag 2",
-                color: "is-link"
-            }
-        ];
-        const testComponent = this._createTags(testData);
+        const testComponent = this._createTags(testData2);
         this.getRegion("testRegion2").show(testComponent);
     }
 
     _showThirdTest() {
-        const testData = [
-            {
-                label: "Test Tag 1",
-                color: "is-warning"
-            },
-            {
-                color: "is-success"
-            },
-            {
-                label: "Test Tag 3"
-            },
-            {
-                label: "Test Tag 4",
-                color: "is-primary",
-                mods : ["is-light"]
-            }
-        ];
-        const testComponent = this._createTags(testData);
+        const testComponent = this._createTags(testData3);
         this.getRegion("testRegion3").show(testComponent);
     }
 
@@ -71,9 +40,7 @@ export class RootView extends View {
         //TODO:     Instantiate and return component from data
         //TODO:     The component should be a list of tags as shown at
         //TODO:     https://bulma.io/documentation/elements/tag/
-        return new class extends View {
-            template() { return "Not implemented" }
-        };
+        return new PlaceHolder;
     }
 
     template() {
@@ -85,4 +52,10 @@ export class RootView extends View {
         `;
     }
 
+}
+
+class PlaceHolder extends View {
+    template() {
+        return "Not implemented"
+    }
 }
