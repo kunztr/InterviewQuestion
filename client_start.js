@@ -1,23 +1,16 @@
-import {Application, View} from "./libraries/marionette.js";
+import {Application} from "./libraries/marionette.js";
+import {RootView}    from "./scripts/root_view.js";
 
-const rootView = new (View.extend({
-
-    template() {
-        return "This is a test!";
-    }
-
-}));
-
-const app = new (Application.extend({
+const app = new class extends Application {
 
     get region() {
         return "body";
-    },
-
-    onStart() {
-        this.showView(rootView);
     }
 
-}));
+    onStart() {
+        this.showView(new RootView);
+    }
+
+};
 
 app.start();
