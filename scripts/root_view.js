@@ -1,4 +1,4 @@
-import {View} from "../libraries/marionette.js";
+import {View} from "/libraries/marionette.js";
 
 export class RootView extends View {
 
