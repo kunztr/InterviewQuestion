@@ -18,8 +18,7 @@ This will clone the repository into the current directory
 - `/` The root contains several files that are needed to run a basic web server.
 You can edit these if you want, but there shouldn't be any need.
 
-- `/stylesheets` contains some basic styling to get you started. Feel free to
-improve the styling if you want.
+- `/stylesheets` contains some basic styling to get you started.
 
 - `/scripts/test_data` contains the data that will need to be shown. You can
 look here to see how the data is structured.
