@@ -36,12 +36,32 @@ export class RootView extends View {
         this.getRegion("testRegion3").show(testComponent);
     }
 
+    //Creates string of HTML tags and content
     _createTags(data) {
-        //TODO:     Instantiate and return component from data
-        //TODO:     The component should be a list of tags as shown at
-        //TODO:     https://bulma.io/documentation/elements/tag/
-        return new PlaceHolder;
+        var componentBuilder = `<div class="tags">`; //Stores HTML tags and content for single component
+        //Goes through each json object and builds a tag
+        for(var i in data){
+            componentBuilder += this._buildTag(data[i]);
+        }
+        componentBuilder += `</div>`;        
+        return componentBuilder;
     }
+    
+    //Builds tag based on json object
+    _buildTag(tagProperties){
+        var tagBuilder = `<span class="tag ` + tagProperties.color;
+        //Adds all mods, assuming mods are stored in an array
+        for(var j in tagProperties.mods){
+                    tagBuilder += ` ` + tagProperties.mods;
+                }
+                tagBuilder += `">`;
+                //Adds label to tag as long as label key exists
+                if(tagProperties.hasOwnProperty("label")){
+                    tagBuilder += tagProperties.label;
+                }
+            tagBuilder += `</span>`;
+        return tagBuilder;
+        }
 
     template() {
         return `
@@ -51,11 +71,13 @@ export class RootView extends View {
           <div class="box test-3"></div>
         `;
     }
+    
 
 }
 
-class PlaceHolder extends View {
-    template() {
-        return "Not implemented"
+class ComponentText extends View {
+    template() {        
+        return;
     }
+
 }
